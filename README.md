@@ -97,4 +97,67 @@ The goal is to create a lexical analyzer capable of processing strings or comple
 - **Special Characters**: Complex sequences and non-ASCII characters are not supported.
 - **Multi-line Strings**: May not be correctly handled.
 - **Numeric Constant Suffixes**: Not explicitly addressed.
+# Architecture and Design
+
+The design of this project consists of a series of states. First, the lexical analyzer will access a text file containing the code to be analyzed. Subsequently, this text will be processed by a module where the code elements are checked using a finite automaton. Additionally, the tokens found during this process will be recorded.
+
+## Automaton
+
+To accept or reject statements, regular expressions are used to determine the structure of tokens in the code, including compound tokens such as identifiers, strings, special characters, and escape sequences. Regular expressions define patterns to be recognized and must be conformed to a grammar that provides a formal and generalized structure to understand how these patterns are grouped and structured. This grammar helps organize and classify tokens, simplify and optimize the analysis process, and facilitate implementation in code.
+
+The automaton is composed of 37 states, with `q0` as the initial state and 20 final states.
+
+### Identifiers
+
+This part of the finite automaton accepts strings representing the program's identifiers. It includes regular expressions for identifiers that start with uppercase letters followed by uppercase or lowercase letters, numbers, underscores, or end of a sentence. Another expression handles identifiers starting with a slash, followed by uppercase letters, lowercase letters, numbers, or underscores.
+
+Regular Expressions:
+- `[a-z][a-z]*[a-zA-Z0-9_$]`
+- `[A-Z|_|$][a-zA-Z0-9_$]*`
+- `_[a-zA-Z0-9_$]*`
+- `$[a-zA-Z0-9_$]*`
+
+### Punctuation
+
+All grouping and punctuation symbols accepted by the C language are reviewed in the lexical part of the code. These characters transition to an accepting state regardless of whether their corresponding closing symbol is present later.
+
+Regular Expression:
+- `[ \[\]\(\)\{\}\,;:\? ]`
+
+### Strings
+
+Strings in C language must be enclosed in double quotes. A string starts with a double quote and ends with a double quote. Inside, it can contain any ASCII symbol, including letters, numbers, and punctuation symbols.
+
+Regular Expression:
+- `"[^"]*"`
+
+### Operators
+
+The automaton identifies arithmetic, logical, and comparison operators, both simple and compound. Arithmetic symbols are accepted, and an assignment operator may follow them, but an assignment symbol is not accepted without a preceding arithmetic operator. Logical and comparison operators can be compound and may be followed by more comparison or assignment operators, but an assignment symbol is not accepted without a preceding comparison operator.
+
+Regular Expressions:
+- Arithmetic Operators: `[=|\*/%!^\][=]? \+[+=]? -[-=>]?`
+- Logical and Comparison Operators: `&[&=]? \|[\|]? <(<)?(=)? >(>)?(>)?(=)? ~`
+
+### Escape Characters and ASCII Notation
+
+Escape characters must be enclosed in single quotes and preceded by a slash (`\`). The valid escape sequences include `b`, `n`, `r`, `t`, `v`, `a`, `f`, `‘`, `”`, `?`. ASCII code can also be represented, composed of three numbers or letters.
+
+Regular Expression for Escape Characters:
+- `'\\[bnrtvaf‘“?]'`
+
+Example for ASCII Code:
+- `'\077'` corresponds to the character `?` in the ASCII table.
+<div style="text-align: center;">
+  <img width="690" alt="Captura de pantalla 2024-09-12 a la(s) 10 33 18 p m" src="https://github.com/user-attachments/assets/62091ed4-0bdb-4ef8-a328-0c5524533415"><br>
+  
+  <img width="459" alt="Captura de pantalla 2024-09-12 a la(s) 10 33 55 p m" src="https://github.com/user-attachments/assets/3e2af2fc-70f9-4a15-874c-cd92697f0a2f"><br>
+  
+  <img width="669" alt="Captura de pantalla 2024-09-12 a la(s) 10 34 17 p m" src="https://github.com/user-attachments/assets/0546c766-96fa-409b-ab0c-2d2b07d2c3a9"><br>
+  
+  <img width="1199" alt="Captura de pantalla 2024-09-12 a la(s) 10 34 50 p m" src="https://github.com/user-attachments/assets/f87b3701-61e6-46f2-8a30-5ef57abe354e"><br>
+  
+  <img width="1059" alt="Captura de pantalla 2024-09-12 a la(s) 10 35 22 p m" src="https://github.com/user-attachments/assets/33599b42-3072-4f5d-bf1a-4ae0c77622f5"><br>
+</div>
+
 
