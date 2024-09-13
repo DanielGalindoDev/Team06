@@ -149,15 +149,15 @@ Regular Expression for Escape Characters:
 Example for ASCII Code:
 - `'\077'` corresponds to the character `?` in the ASCII table.
 <br>
-### Identifiers
+### Identifiers<br>
   <img width="690" alt="Captura de pantalla 2024-09-12 a la(s) 10 33 18 p m" src="https://github.com/user-attachments/assets/62091ed4-0bdb-4ef8-a328-0c5524533415"><br>
-### Punctuation
+### Punctuation<br>
   <img width="459" alt="Captura de pantalla 2024-09-12 a la(s) 10 33 55 p m" src="https://github.com/user-attachments/assets/3e2af2fc-70f9-4a15-874c-cd92697f0a2f"><br>
-### Strings  
+### Strings<br>
 <img width="669" alt="Captura de pantalla 2024-09-12 a la(s) 10 34 17 p m" src="https://github.com/user-attachments/assets/0546c766-96fa-409b-ab0c-2d2b07d2c3a9"><br>
-### Operators
+### Operators<br>
   <img width="1199" alt="Captura de pantalla 2024-09-12 a la(s) 10 34 50 p m" src="https://github.com/user-attachments/assets/f87b3701-61e6-46f2-8a30-5ef57abe354e"><br>
-### Escape Characters and ASCII Notation 
+### Escape Characters and ASCII Notation<br>
   <img width="1059" alt="Captura de pantalla 2024-09-12 a la(s) 10 35 22 p m" src="https://github.com/user-attachments/assets/33599b42-3072-4f5d-bf1a-4ae0c77622f5"><br>
 
 
