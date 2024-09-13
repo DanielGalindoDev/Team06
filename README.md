@@ -7,6 +7,10 @@
 - Isidro Castro Karen Cristina
 - Zurita Cámara Juan Pablo
 
+ ## Presentation Link
+ [Presentation.pdf](https://github.com/user-attachments/files/16988640/presentacion_compressed.pdf)
+
+
 ## Introduction
 
 A lexical analyzer is a fundamental phase in the process of compiling or interpreting programming languages. Its primary function is to convert a sequence of source code characters into a sequence of tokens—lexical units with meaning in the language. This step simplifies the input for the parser by dividing it into manageable tokens representing keywords, identifiers, numbers, operators, or delimiters.
