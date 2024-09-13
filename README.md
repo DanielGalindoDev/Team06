@@ -8,7 +8,7 @@
 - Zurita Cámara Juan Pablo
 
  ## Presentation Link
- [Presentation.pdf](https://github.com/user-attachments/files/16988640/presentacion_compressed.pdf)
+ [Presentation.pdf](https://github.com/user-attachments/files/16988640/presentacion_compressed.pdf)<br>
  [Repository Link](https://github.com/DanielGalindoDev/Team06)
 
 ## Introduction
