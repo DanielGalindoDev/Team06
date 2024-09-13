@@ -159,5 +159,30 @@ Example for ASCII Code:
   <img width="1199" alt="Captura de pantalla 2024-09-12 a la(s) 10 34 50 p m" src="https://github.com/user-attachments/assets/f87b3701-61e6-46f2-8a30-5ef57abe354e"><br>
 ### Escape Characters and ASCII Notation<br>
   <img width="1059" alt="Captura de pantalla 2024-09-12 a la(s) 10 35 22 p m" src="https://github.com/user-attachments/assets/33599b42-3072-4f5d-bf1a-4ae0c77622f5"><br>
+<br><br><br>
+# Implementation
 
+The project was implemented using three files: two `.c` files and one `.h` header file. The architecture followed is described as follows:
+
+## File: `test.c`
+
+This file is responsible for executing the lexical analyzer and essentially serves as the main function of our library. It handles both input files and strings entered via the console. The input is processed line by line and sent to a lexical analyzer function located in another file. This file also prints the tokens and the total token count. Key components of this file include:
+
+- Use of the `fgets` function.
+- A `while` loop that processes the input file.
+- Utilization of standard C libraries.
+
+## File: `lex.c`
+
+This file defines the behavior of the library, including the lexer, the automata in the form of state matrices, and functions for transitions, classification, and token printing. The key structures and functions in this file include:
+
+- `printTokenInfo()`: Prints the information of the tokens passed to it.
+- `lexicalAnalyzer()`: Contains the logic for handling states, line breaks, categorizing, and tokenizing lexemes.
+- `isKeyWord()`: Receives a lexeme and determines if it is a keyword.
+- `categorizeLexeme()`: Categorizes any lexeme and assigns its corresponding token.
+- `const char FA[][97]`: Transition matrix that generates all the code for the automata specified; this is the main core of the program.
+
+## File: `lex.h`
+
+This header file defines data types used in `lex.c`, such as `token`, `tokens_info`, and the general `lexertype` structure. It also includes the function prototypes for the functions implemented in `lex.c`.
 
