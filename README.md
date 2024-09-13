@@ -9,7 +9,6 @@
 
  ## Presentation Link
  [Presentation.pdf](https://github.com/user-attachments/files/16988640/presentacion_compressed.pdf)
- ## Presentation Link
  [Repository Link](https://github.com/DanielGalindoDev/Team06)
 
 ## Introduction
